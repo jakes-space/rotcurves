@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Galaxy Rotation Curves</title>
+<link rel="stylesheet" type="text/css" href="rotcurves.css">
+<script src="rgraph/RGraph.common.core.js"></script>
+<script src="rgraph/RGraph.common.dynamic.js"></script>
+<script src="rgraph/RGraph.drawing.circle.js"></script>
+<script src="rgraph/RGraph.line.js"></script>
+<script src="rgraph/RGraph.scatter.js"></script>
+<script src="rotcurves.js"></script>
+<script src="milkyway.js"></script>
+<script src="m33.js"></script>
+<script src="ngc2403.js"></script>
+<script src="ugc128.js"></script>
+<script>
+  setupGalaxies([MilkyWay, M33, NGC2403, UGC128]);
+</script>
+</head>
+
+<body>
+
+<div class="centered_column">
+<div class="galaxy_selection_container">
+  Galaxy:
+  <select id="galaxy_selector">
+  </select>
+</div>
+
+<canvas id="velocity" width="600" height="250">[No canvas support]</canvas>
+<br/>
+<canvas id="density" width="600" height="250">[No canvas support]</canvas>
+
+<p id="summary">[No Javascript support]</p>
+
+<div class="slide_container">
+  Central black hole:
+  <input type="range" min="0" max="650" value="0" style="width:300px"
+         id="bh_slider" />
+  <span id="bh_mass">None</span>
+</div>
+
+<br/><label id="show_lum_mass_label">
+  <input type="checkbox" id="show_lum_mass" />
+  Show luminous mass model
+</label>
+
+<!-- for debugging the luminous mass models:
+<p><span id="lmm">foo</span>
+  <br/><input type="range" min="0" max="1000" value="0" class="slider" id="m0"
+              oninput="updateLuminousMassModel()" />
+  <br/><input type="range" min="0" max="200" value="10" class="slider" id="r0"
+              oninput="updateLuminousMassModel()" />
+  <br/><input type="range" min="0" max="300" value="100" class="slider" id="mu"
+              oninput="updateLuminousMassModel()" />
+  <br/><input type="range" min="0" max="300" value="100" class="slider" id="nu"
+              oninput="updateLuminousMassModel()" />
+  <br/><button onclick="setMassModel()">cheat</button>
+</p>
+<script>
+  function updateLuminousMassModel() {
+    galaxy.luminousMassModel.m0 = document.getElementById("m0").value / 10;
+    galaxy.luminousMassModel.r0 = document.getElementById("r0").value / 10;
+    galaxy.luminousMassModel.mu = document.getElementById("mu").value / 100;
+    galaxy.luminousMassModel.nu = document.getElementById("nu").value / 100;
+    document.getElementById("lmm").innerHTML =
+      galaxy.luminousMassModel.m0 + ", " +
+      galaxy.luminousMassModel.r0 + ", " +
+      galaxy.luminousMassModel.mu + ", " +
+      galaxy.luminousMassModel.nu;
+    setupPlots();
+  }
+  function setMassModel() {
+    model.m = galaxy.getLuminousMassCurve(model.r);
+    setupPlots();
+  }
+</script>
+-->
+
+</div>
+</body>

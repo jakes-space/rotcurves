@@ -1,0 +1,20 @@
+body {
+  /* Prevent the user from selecting text. */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Currently supported by Chrome, Opera and Firefox */
+}
+
+.centered_column {
+   width: 650px;
+   position: absolute;
+   left: 50%;
+   margin-left: -325px;
+}
+
+.galaxy_selection_container {
+  text-align: center;
+}
